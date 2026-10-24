@@ -286,6 +286,12 @@ footer .wrap { padding-block: 28px 40px; color: var(--muted); font-size: 0.88rem
             <a class="more" href="https://github.com/CalebPuc/Wiresharks-copy" target="_blank" rel="noopener">See the code on GitHub</a>
           </article>
           <article class="project">
+            <h3>LLM Fine-Tuning and Retrieval-Augmented Generation</h3>
+            <div class="meta">Python &middot; PyTorch &middot; CUDA &middot; Hugging Face &middot; LoRA &middot; Fall 2026</div>
+            <p>Two projects with language models for Applied Machine Learning, run on GPUs with CUDA. First, I fine-tuned Microsoft's 1.3-billion-parameter Phi-1.5 model with LoRA, training only 0.3% of its weights, to solve grade-school math word problems step by step. Afterward it followed the required answer format <span class="metric">98%</span> of the time on problems it hadn't seen.</p>
+            <p>Second, I built a retrieval-augmented generation (RAG) system. It turns 10,570 Wikipedia passages into embeddings, finds the passage most relevant to each question in about <span class="metric">10 ms</span>, and gives it to the Phi-2 model as context. That raised question-answering accuracy from 21% to <span class="metric">58%</span>.</p>
+          </article>
+          <article class="project">
             <span class="pill">In progress</span>
             <h3>Autonomous Patrol Robot</h3>
             <div class="meta">ROS 2 &middot; Python &middot; Kinova arm &middot; Fall 2026</div>
@@ -307,6 +313,7 @@ footer .wrap { padding-block: 28px 40px; color: var(--muted); font-size: 0.88rem
             <div class="meta">C &middot; RISC-V &middot; pthreads &middot; Logisim &middot; Python &middot; 2025&ndash;2026</div>
             <p><strong>Operating Systems:</strong> added kernel features in C to xv6, a small teaching operating system that runs on RISC-V, covering system calls, virtual memory, threads, and the file system. I also built my own <code>malloc</code>/<code>free</code> heap allocator that splits and merges memory blocks, and a reader-writer lock with writer priority levels using pthreads.</p>
             <p><strong>Computer Architecture:</strong> designed a working 16-bit CPU from logic gates, with an 8-register file, an ALU, instruction decoding, memory, and keyboard and display I/O, and ran programs on it.</p>
+            <a class="more" href="https://github.com/CalebPuc/16-bit_CPU_Logisim-evolution" target="_blank" rel="noopener">See the CPU design on GitHub</a>
             <p><strong>Computer Networks:</strong> wrote an HTTP client directly on TCP sockets, with optional TLS encryption, that times each stage of a web request.</p>
           </article>
           <article class="project">
@@ -340,11 +347,11 @@ footer .wrap { padding-block: 28px 40px; color: var(--muted); font-size: 0.88rem
       <div>
         <h2 id="skills-h" hidden>Skills</h2>
         <dl class="skills">
-          <div class="skillrow"><dt>Languages</dt><dd>C, C++, Python, Java, C#, TypeScript, JavaScript, Lua, Bash, MATLAB</dd></div>
+          <div class="skillrow"><dt>Languages</dt><dd>C, C++, Python, Java, C#, TypeScript, JavaScript, Lua, SQL, Bash, MATLAB</dd></div>
           <div class="skillrow"><dt>Cloud &amp; backend</dt><dd>AWS (Lambda, API Gateway, DynamoDB, S3, EC2, IAM, Bedrock), REST, GraphQL, WebSockets</dd></div>
           <div class="skillrow"><dt>Systems &amp; graphics</dt><dd>Linux, ROS 2, Unity, Arduino, RISC-V (xv6), OpenSceneGraph, OpenGL, real-time 3D simulation</dd></div>
-          <div class="skillrow"><dt>AI &amp; quantum</dt><dd>PyTorch, NumPy, Pandas, Qiskit, Cirq, D-Wave Ocean</dd></div>
-          <div class="skillrow"><dt>Practices</dt><dd>Git, Gradle, JUnit, code review, Agile/Scrum, design documents</dd></div>
+          <div class="skillrow"><dt>AI &amp; quantum</dt><dd>PyTorch, CUDA, Hugging Face, NumPy, Pandas, Qiskit, Cirq, D-Wave Ocean</dd></div>
+          <div class="skillrow"><dt>Practices</dt><dd>Git, Docker, Gradle, JUnit, code review, Agile/Scrum, design documents</dd></div>
         </dl>
       </div>
     </div>
