@@ -1,0 +1,489 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Caleb Pucylowski | Software Engineering, Duke ECE + CS</title>
+<meta name="description" content="Caleb Pucylowski, Duke University Electrical & Computer Engineering and Computer Science student. Former software engineering intern at NASA Langley and Amazon, seeking a Summer 2027 software engineering internship.">
+<meta name="author" content="Caleb Pucylowski">
+<link rel="canonical" href="https://calebpucylowski.com/">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Caleb Pucylowski | Software Engineering">
+<meta property="og:description" content="Duke ECE + CS student. Software engineering intern at NASA Langley and Amazon. Seeking a Summer 2027 SWE internship.">
+<meta property="og:url" content="https://calebpucylowski.com/">
+<meta property="og:image" content="https://calebpucylowski.com/media/share-card.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://calebpucylowski.com/media/share-card.jpg">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Caleb Pucylowski","url":"https://calebpucylowski.com/",
+ "alumniOf":"Duke University","jobTitle":"Software Engineering Student",
+ "sameAs":["https://www.linkedin.com/in/caleb-pucylowski","https://github.com/CalebPuc"]}
+</script>
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}html{scroll-behavior:smooth}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Michroma&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a single reading column with a flight-deck header band; sections read like a flight log, left labels + right content on wide screens. */
+:root {
+  --bg: #f5f7fa;
+  --surface: #ffffff;
+  --fg: #14202e;
+  --muted: #566476;
+  --line: #d9e0e8;
+  --accent: #b0177a;          /* avionics "magenta line": the active flight path */
+  --accent-soft: #f6e3ef;
+  --deck: #0e1a28;            /* header band: cockpit display */
+  --deck-fg: #e6edf5;
+  --deck-muted: #93a3b6;
+  --deck-line: #23344a;
+  --deck-accent: #ff4fb8;
+  --display: "Michroma", "Eurostile", "Microgramma", "Bank Gothic", "Arial Black", sans-serif;
+  --body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0b141f; --surface: #111d2b; --fg: #e3eaf2; --muted: #9aa8b8; --line: #23344a;
+    --accent: #ff5cbf; --accent-soft: #3a1830;
+    --deck: #070e17; --deck-fg: #e6edf5; --deck-muted: #93a3b6; --deck-line: #1c2b3e; --deck-accent: #ff5cbf;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0b141f; --surface: #111d2b; --fg: #e3eaf2; --muted: #9aa8b8; --line: #23344a;
+  --accent: #ff5cbf; --accent-soft: #3a1830;
+  --deck: #070e17; --deck-fg: #e6edf5; --deck-muted: #93a3b6; --deck-line: #1c2b3e; --deck-accent: #ff5cbf;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--fg);
+  font-family: var(--body); font-size: 16.5px; line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+.wrap {
+  max-width: 1040px; margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+
+/* ---------- header band ---------- */
+.deck { background: var(--deck); color: var(--deck-fg); position: relative; overflow: hidden; }
+.deck canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.deck .wrap { position: relative; padding-block: 72px 56px; display: grid; gap: 22px; }
+.readout {
+  font-family: var(--mono); font-size: 12.5px; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--deck-muted); display: flex; flex-wrap: wrap; gap: 6px 22px;
+}
+.readout b { color: var(--deck-accent); font-weight: 500; }
+h1 {
+  font-family: var(--display); font-weight: 400; font-synthesis: none; font-size: clamp(1.9rem, 5.6vw, 3.5rem);
+  line-height: 1.12; letter-spacing: 0.01em; margin: 0; text-wrap: balance;
+}
+.lede { max-width: 38em; font-size: 1.15rem; color: var(--deck-fg); margin: 0; opacity: 0.92; }
+.status {
+  display: inline-flex; align-items: center; gap: 10px; justify-self: start;
+  border: 1px solid var(--deck-line); border-radius: 999px; padding: 6px 14px;
+  font-size: 0.92rem; color: var(--deck-fg); background: rgba(0,0,0,0.25);
+}
+.status::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--deck-accent); box-shadow: 0 0 0 4px rgba(255,79,184,0.18); }
+.actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px; text-decoration: none;
+  font: 500 0.95rem var(--body); padding: 10px 16px; border-radius: 8px;
+  border: 1px solid var(--deck-line); color: var(--deck-fg); background: transparent; cursor: pointer;
+}
+.btn:hover { border-color: var(--deck-muted); }
+.btn.primary { background: var(--deck-accent); border-color: var(--deck-accent); color: #1a0612; }
+.btn.primary:hover { filter: brightness(1.08); }
+.caption { font-family: var(--mono); font-size: 11.5px; color: var(--deck-muted); letter-spacing: 0.04em; margin: 0; }
+
+/* ---------- sections ---------- */
+main section { border-top: 1px solid var(--line); }
+main section .wrap { padding-block: 56px; display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 32px; }
+.label {
+  font-family: var(--display); font-weight: 400; font-synthesis: none; font-size: 13.5px; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--fg); padding-top: 4px;
+}
+.label::after { content: ""; display: block; width: 28px; height: 2px; margin-top: 10px; background: var(--accent); }
+h2 { font-family: var(--display); font-weight: 400; font-synthesis: none; font-size: 1.45rem; line-height: 1.25; margin: 0 0 8px; letter-spacing: 0.01em; text-wrap: balance; }
+h3 { font-family: var(--body); font-weight: 600; font-size: 1.2rem; line-height: 1.3; margin: 0; text-wrap: balance; }
+p { margin: 0; }
+.prose { max-width: 40em; display: grid; gap: 14px; }
+.about { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 28px; align-items: start; }
+.portrait { width: 100%; height: auto; border-radius: 10px; border: 1px solid var(--line); background: var(--surface); }
+figure { margin: 0; }
+.shot img { display: block; width: 100%; max-width: 640px; height: auto; border-radius: 8px; border: 1px solid var(--line); }
+.strip { max-width: 760px; }
+.strip.three { max-width: 100%; }
+.strip-row { display: flex; gap: 8px; }
+.strip-row img { flex: var(--r) 1 0; min-width: 0; width: 100%; height: auto; aspect-ratio: var(--r); object-fit: cover; border-radius: 8px; border: 1px solid var(--line); }
+@media (max-width: 760px) {
+  .strip-row { display: grid; grid-template-columns: 1fr 1fr; }
+  .strip-row img { aspect-ratio: 0.92; }
+  .strip-row img:nth-child(1) { object-position: center 30%; }
+  .strip-row img:nth-child(4) { object-position: left center; }
+  .strip.three .strip-row img:first-child { grid-column: 1 / -1; aspect-ratio: 1.333; }
+  .strip.three .strip-row img:nth-child(2) { object-position: center 70%; }
+}
+.shots { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 12px; max-width: 760px; align-items: start; }
+.pair { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.pair img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 8px; border: 1px solid var(--line); }
+.project.wide { grid-column: 1 / -1; }
+.clip video { display: block; width: 100%; max-width: 240px; height: auto; border-radius: 8px; border: 1px solid var(--line); background: var(--surface); }
+figcaption { margin-top: 8px; font-size: 0.88rem; color: var(--muted); max-width: 44em; }
+@media (max-width: 760px) { .about { grid-template-columns: minmax(0, 1fr); } .portrait { max-width: 200px; } .shots { grid-template-columns: minmax(0, 1fr); } .shots .shot:last-child img { max-width: 260px; } }
+
+.log { display: grid; gap: 36px; }
+.entry { display: grid; gap: 10px; min-width: 0; }
+.entry-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 16px; }
+.where { color: var(--muted); font-size: 0.97rem; }
+.when { font-family: var(--mono); font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.entry ul { margin: 0; padding-left: 1.1em; display: grid; gap: 6px; max-width: 44em; }
+.entry li::marker { color: var(--accent); }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.tag {
+  font-family: var(--mono); font-size: 12.5px; padding: 3px 9px; border-radius: 5px;
+  background: var(--accent-soft); color: var(--fg);
+}
+.metric { color: var(--accent); font-weight: 600; }
+
+.projects { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.project {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 10px;
+  padding: 20px; display: flex; flex-direction: column; gap: 12px; min-width: 0;
+}
+.project p { color: var(--fg); }
+.project code { font-family: var(--mono); font-size: 0.9em; }
+.project .meta { font-family: var(--mono); font-size: 12.5px; color: var(--muted); }
+.project .more { margin-top: auto; font-weight: 500; font-size: 0.95rem; }
+.pill {
+  justify-self: start; align-self: flex-start; font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.06em; text-transform: uppercase;
+  border: 1px solid var(--accent); color: var(--accent); border-radius: 999px; padding: 2px 9px;
+}
+
+.honors { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 28px; }
+.honors li { display: grid; gap: 2px; padding-left: 14px; border-left: 2px solid var(--accent); min-width: 0; }
+.honors span { color: var(--muted); font-size: 0.92rem; }
+@media (max-width: 760px) { .honors { grid-template-columns: minmax(0, 1fr); } }
+.skills { display: grid; gap: 14px; }
+.skillrow { display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 12px; align-items: baseline; }
+.skillrow dt { font-weight: 600; }
+.skillrow dd { margin: 0; color: var(--fg); }
+
+.contact { display: grid; gap: 14px; }
+.copyline { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.copyline code { font-family: var(--mono); font-size: 1rem; background: var(--surface); border: 1px solid var(--line); padding: 6px 10px; border-radius: 6px; user-select: all; }
+.copybtn { font: 500 0.9rem var(--body); padding: 6px 12px; border-radius: 6px; border: 1px solid var(--line); background: var(--surface); color: var(--fg); cursor: pointer; }
+.copybtn:hover { border-color: var(--accent); }
+.links { display: flex; flex-wrap: wrap; gap: 8px 22px; }
+
+footer .wrap { padding-block: 28px 40px; color: var(--muted); font-size: 0.88rem; border-top: 1px solid var(--line); }
+
+@media (max-width: 760px) {
+  main section .wrap { grid-template-columns: minmax(0, 1fr); gap: 14px; padding-block: 40px; }
+  .projects { grid-template-columns: minmax(0, 1fr); }
+  .skillrow { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+  .deck .wrap { padding-block: 52px 40px; }
+}
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+</style>
+
+</head>
+<body>
+<header class="deck" aria-label="Introduction">
+  <canvas id="hits" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div class="readout"><span>Duke University <b>&middot;</b> Class of 2028</span><span>ECE + Computer Science</span><span>Durham, NC &middot; Rockledge, FL</span></div>
+    <h1>Caleb Pucylowski</h1>
+    <p class="lede">Software engineer in training. I build software for systems that have to work in real time, from 3D flight-guidance graphics at NASA to a cloud service for Amazon's AI shopping assistant.</p>
+    <span class="status">Seeking a Summer 2027 software engineering internship</span>
+    <div class="actions">
+      <a class="btn primary" href="Caleb_Pucylowski_Resume.pdf" target="_blank" rel="noopener">View resume (PDF)</a>
+      <a class="btn" href="https://www.linkedin.com/in/caleb-pucylowski" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="https://github.com/CalebPuc" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn" href="#contact">Contact</a>
+    </div>
+    <p class="caption">Background: a sketch of the &ldquo;Highway in the Sky&rdquo; guidance tunnel I built for NASA Langley's flight simulator.</p>
+  </div>
+</header>
+
+<main>
+  <section id="experience" aria-labelledby="exp-h">
+    <div class="wrap">
+      <div class="label">Experience</div>
+      <div>
+        <h2 id="exp-h" hidden>Experience</h2>
+        <div class="log">
+          <article class="entry">
+            <div class="entry-head"><h3>Software Engineering Intern, NASA Langley Research Center</h3><span class="when">Jun&ndash;Aug 2026</span></div>
+            <div class="where">Simulation Development &amp; Analysis Branch &middot; Hampton, VA</div>
+            <ul>
+              <li>Built an in-house C++ &ldquo;Highway in the Sky&rdquo; display for a NASA urban air mobility (UAM) aircraft simulation: a 3D tunnel of boxes that guides the pilot along the planned route. It replaced graphics from a third-party vendor that were hard to modify.</li>
+              <li>Turned waypoint data (latitude, longitude, altitude, and heading) into real-time guidance on the primary-flight and navigation displays using OpenSceneGraph and OpenGL.</li>
+              <li>Flight tests on NASA's full-scale flight-deck simulator matched the vendor display on every route I flew.</li>
+              <li>Finished core development <span class="metric">2 weeks ahead of schedule</span> and took the feature through critical design review, a live demo, and peer code review.</li>
+            </ul>
+            <div class="tags"><span class="tag">C++</span><span class="tag">OpenSceneGraph</span><span class="tag">OpenGL</span><span class="tag">Linux</span><span class="tag">XML</span></div>
+            <figure class="strip three">
+              <div class="strip-row">
+                <img src="media/nasa-hits-poster.jpg" width="1400" height="1050" style="--r: 1.333" loading="lazy" alt="Caleb in a blue suit beside his poster, Generic UAM Highway-In-The-Sky, with the guidance display running on a monitor">
+                <img src="media/nasa-flight-dynamics.jpg" width="900" height="1055" style="--r: 0.853" loading="lazy" alt="Caleb standing outside NASA Langley's Flight Dynamics Research Facility">
+                <img src="media/nasa-certificate.jpg" width="1400" height="1050" style="--r: 1.333" loading="lazy" alt="Caleb and fellow interns holding certificates of completion on stage in front of the NASA logo, with an audience in the foreground">
+              </div>
+              <figcaption>At NASA Langley: presenting my display at the intern poster session (it's running on the monitor), outside the Flight Dynamics Research Facility, and receiving my certificate of completion.</figcaption>
+            </figure>
+          </article>
+          <article class="entry">
+            <div class="entry-head"><h3>Software Development Engineer Intern, Amazon</h3><span class="when">May&ndash;Aug 2025</span></div>
+            <div class="where">Private Brands &middot; Seattle, WA</div>
+            <ul>
+              <li>Built an end-to-end escalation service for an AI shopping assistant in Java and TypeScript, using WebSockets to route conversations to human experts in real time.</li>
+              <li>Cut expert case-review time by <span class="metric">83%</span> (30 minutes to 5) by attaching AI-generated summaries and full conversation history to every ticket.</li>
+              <li>Integrated AWS Lambda, API Gateway (GraphQL), and DynamoDB, wrote the design document, and shipped through Agile sprints and code review.</li>
+            </ul>
+            <div class="tags"><span class="tag">Java</span><span class="tag">TypeScript</span><span class="tag">AWS</span><span class="tag">GraphQL</span><span class="tag">DynamoDB</span></div>
+            <figure class="strip">
+              <div class="strip-row">
+                <img src="media/amazon-1-selfie.jpg" width="600" height="687" style="--r: 0.873" loading="lazy" alt="Caleb wearing an intern lanyard and name tag in front of an orange Amazon backdrop">
+                <img src="media/amazon-2-logo.jpg" width="600" height="962" style="--r: 0.624" loading="lazy" alt="Orange Amazon banner with the Amazon logo">
+                <img src="media/amazon-3-intern-sign.jpg" width="600" height="652" style="--r: 0.920" loading="lazy" alt="Large #amazonINTERN letters on a stage">
+                <img src="media/amazon-4-event.jpg" width="600" height="898" style="--r: 0.668" loading="lazy" alt="Caleb smiling at a crowded Amazon intern event, with presentation screens behind him">
+              </div>
+              <figcaption>Amazon's intern events in Seattle, summer 2025.</figcaption>
+            </figure>
+          </article>
+          <article class="entry">
+            <div class="entry-head"><h3>Undergraduate Research Assistant, Duke Quantum Center</h3><span class="when">May 2025&ndash;May 2026</span></div>
+            <ul><li>Developed and simulated quantum algorithms and circuits in Python with Qiskit and Cirq, and analyzed their error behavior on noisy quantum hardware.</li></ul>
+          </article>
+          <article class="entry">
+            <div class="entry-head"><h3>Research Assistant, University of Maryland, Baltimore County</h3><span class="when">Jun&ndash;Aug 2024</span></div>
+            <ul><li>Ran noisy quantum-system simulations in the Deffner Lab to measure error and decoherence in open quantum systems.</li></ul>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" aria-labelledby="proj-h">
+    <div class="wrap">
+      <div class="label">Projects</div>
+      <div>
+        <h2 id="proj-h" hidden>Projects</h2>
+        <div class="projects">
+          <article class="project">
+            <h3>Bazaar Multiplayer Game Engine</h3>
+            <div class="meta">Java &middot; Gradle &middot; JUnit 5 &middot; Spring 2026</div>
+            <p>A Java engine for a multiplayer trading game, built with my brother for Duke's Software Engineering course. It has a rules engine, a referee that runs full games and removes players who break the rules, and AI players with swappable strategies.</p>
+            <p><span class="metric">226 unit tests</span> cover about 2,800 lines of code.</p>
+            <a class="more" href="https://github.com/CalebPuc/Wiresharks-copy" target="_blank" rel="noopener">See the code on GitHub</a>
+          </article>
+          <article class="project">
+            <span class="pill">In progress</span>
+            <h3>Autonomous Patrol Robot</h3>
+            <div class="meta">ROS 2 &middot; Python &middot; Kinova arm &middot; Fall 2026</div>
+            <p>A ROS 2 robot, programmed in Python and built around a modified Kinova robotic arm for Intro to Robotics. It patrols an area, notices when someone comes near, and heckles them with spoken warnings until they leave. Then it goes back to its patrol route.</p>
+            <figure class="clip">
+              <video src="media/kinova-writes-crp.mp4" poster="media/kinova-writes-crp.jpg" width="540" height="960" muted loop playsinline autoplay preload="metadata" aria-label="Kinova robotic arm drawing the letters C, R, and P on a whiteboard"></video>
+              <figcaption>My midterm: programming the arm to write my initials, CRP, on a whiteboard (sped up 3&times;).</figcaption>
+            </figure>
+          </article>
+          <article class="project">
+            <span class="pill">In progress</span>
+            <h3>Vengeful Glory</h3>
+            <div class="meta">Unity &middot; C# &middot; 2D dungeon crawler &middot; Team of 3 &middot; Fall 2026</div>
+            <p>A dungeon crawler told from the other side. You play a side boss who is tired of being farmed for XP by the hero, so you leave your room, defeat other bosses, collect loot, and level up until you're strong enough to hunt the hero down.</p>
+            <p>I'm building it in Unity and C# with two teammates for Computer Game Design: combat with attack cooldowns, XP and item progression, enemies that are hostile or neutral depending on their intelligence, and dungeon zones that unlock with the items you find. Before this I made two smaller games in PICO-8.</p>
+          </article>
+          <article class="project">
+            <h3>Systems Projects: OS, CPU, and Networking</h3>
+            <div class="meta">C &middot; RISC-V &middot; pthreads &middot; Logisim &middot; Python &middot; 2025&ndash;2026</div>
+            <p><strong>Operating Systems:</strong> added kernel features in C to xv6, a small teaching operating system that runs on RISC-V, covering system calls, virtual memory, threads, and the file system. I also built my own <code>malloc</code>/<code>free</code> heap allocator that splits and merges memory blocks, and a reader-writer lock with writer priority levels using pthreads.</p>
+            <p><strong>Computer Architecture:</strong> designed a working 16-bit CPU from logic gates, with an 8-register file, an ALU, instruction decoding, memory, and keyboard and display I/O, and ran programs on it.</p>
+            <p><strong>Computer Networks:</strong> wrote an HTTP client directly on TCP sockets, with optional TLS encryption, that times each stage of a web request.</p>
+          </article>
+          <article class="project">
+            <h3>Integrated Design Challenge Robot</h3>
+            <div class="meta">Arduino &middot; C++ &middot; Sensors &middot; Spring 2025</div>
+            <p>For Duke's first-year ECE design challenge, my partner and I programmed an Arduino robot that follows a course with line sensors, takes infrared temperature readings over I2C, trades data with the four other robots in our lab section over a serial link, and shows the results on an LCD. All five robots then run a coordinated celebration chosen by the combined scores.</p>
+            <a class="more" href="https://pratt.duke.edu/news/engineering-robots-in-the-integrated-design-challenge/" target="_blank" rel="noopener">Read Duke Pratt's story on the challenge (I'm quoted)</a>
+          </article>
+          <article class="project">
+            <h3>Silicon Wafer Etch and Lab Automation</h3>
+            <div class="meta">KiCad &middot; LabVIEW &middot; Cleanroom fabrication &middot; Fall 2026</div>
+            <p>For Microelectronic Devices &amp; Circuits, I designed an etch pattern in KiCad, exported it as a Gerber file, and etched it into a silicon wafer in Duke's cleanroom: my initials and a sword. In a later lab I used LabVIEW to control a power supply, automating the measurement sweeps and graphing the results.</p>
+            <div class="pair">
+              <img src="media/wafer-crp.jpg" width="800" height="892" loading="lazy" alt="Silicon wafer etched with the letters CRP and a sword">
+              <img src="media/cleanroom.jpg" width="700" height="1204" loading="lazy" alt="Caleb in a full cleanroom suit, mask, and goggles, taking a mirror selfie">
+            </div>
+          </article>
+          <article class="project wide">
+            <h3>Quantum Annealing Flight Scheduler</h3>
+            <div class="meta">Python &middot; D-Wave Ocean SDK &middot; 2023&ndash;2024</div>
+            <p>Framed the problem of assigning aircraft to flights as a QUBO optimization, solved it on a quantum annealer, and compared the results with classical solvers.</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" aria-labelledby="skills-h">
+    <div class="wrap">
+      <div class="label">Skills</div>
+      <div>
+        <h2 id="skills-h" hidden>Skills</h2>
+        <dl class="skills">
+          <div class="skillrow"><dt>Languages</dt><dd>C, C++, Python, Java, C#, TypeScript, JavaScript, Lua, Bash, MATLAB</dd></div>
+          <div class="skillrow"><dt>Cloud &amp; backend</dt><dd>AWS (Lambda, API Gateway, DynamoDB, S3, EC2, IAM, Bedrock), REST, GraphQL, WebSockets</dd></div>
+          <div class="skillrow"><dt>Systems &amp; graphics</dt><dd>Linux, ROS 2, Unity, Arduino, RISC-V (xv6), OpenSceneGraph, OpenGL, real-time 3D simulation</dd></div>
+          <div class="skillrow"><dt>AI &amp; quantum</dt><dd>PyTorch, NumPy, Pandas, Qiskit, Cirq, D-Wave Ocean</dd></div>
+          <div class="skillrow"><dt>Practices</dt><dd>Git, Gradle, JUnit, code review, Agile/Scrum, design documents</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section id="honors" aria-labelledby="honors-h">
+    <div class="wrap">
+      <div class="label">Honors</div>
+      <div>
+        <h2 id="honors-h" hidden>Honors</h2>
+        <ul class="honors">
+          <li><strong>QuestBridge National College Match Scholar</strong><span>QuestBridge</span></li>
+          <li><strong>Generation Google Scholar</strong><span>Google</span></li>
+          <li><strong>Amazon Future Engineer Scholar</strong><span>Amazon</span></li>
+          <li><strong>Hispanic Scholarship Fund Scholar</strong><span>Hispanic Scholarship Fund</span></li>
+          <li><strong>MIT MITES Semester Scholar</strong><span>Massachusetts Institute of Technology, 2023</span></li>
+          <li><strong>National Cyber League: Top 3% Nationally</strong><span>Individual cybersecurity competition</span></li>
+          <li><strong>Dean's List with Distinction</strong><span>Duke University, Fall 2024</span></li>
+          <li><strong>National Merit Commended Scholar</strong><span>National Merit Scholarship Corporation</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" aria-labelledby="about-h">
+    <div class="wrap">
+      <div class="label">About</div>
+      <div class="about">
+        <img class="portrait" src="media/caleb-headshot.jpg" width="640" height="768" alt="Portrait of Caleb Pucylowski in a blue suit in front of the arches of Duke Chapel">
+      <div class="prose">
+        <h2 id="about-h">Raised on the Space Coast</h2>
+        <p>I grew up near Cape Canaveral. In high school I programmed and designed robots for my FIRST Robotics team, volunteered with the team for several years at the Kennedy Space Center International Academy, and placed in the top 3% nationally in the National Cyber League cybersecurity competition. Through dual enrollment I earned an associate degree with a 4.0 and co-founded a MATLAB club at Florida Tech before starting at Duke.</p>
+        <p>At Duke, I'm double majoring in Electrical &amp; Computer Engineering and Computer Science with a minor in math. My first-year engineering design team built a sand-and-carbon filter that cleans dishwater so the Duke Smart Home, a sustainable house on campus, can reuse it in its garden. Outside class, I row for Duke Club Rowing and serve as Vice President of Marketing &amp; Communications for Duke Engineering Student Government.</p>
+        <figure class="shot">
+          <img src="media/smart-home-filter-team.jpg" width="1200" height="666" loading="lazy" alt="Caleb and three teammates with two sand-and-carbon filter tubes and their poster, Smart Home Sand-Carbon Dishwater Filter">
+          <figcaption>My design team with our Smart Home dishwater filters at the Duke Engineering design showcase.</figcaption>
+        </figure>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" aria-labelledby="contact-h">
+    <div class="wrap">
+      <div class="label">Contact</div>
+      <div class="contact">
+        <h2 id="contact-h">Get in touch</h2>
+        <p>I'd be glad to hear about internship openings for Summer 2027.</p>
+        <div class="copyline">
+          <code id="email">caleb.pucylowski@duke.edu</code>
+          <button class="copybtn" id="copy-email" type="button">Copy email</button>
+          <span id="copy-status" class="where" aria-live="polite"></span>
+        </div>
+        <div class="links">
+          <a href="https://www.linkedin.com/in/caleb-pucylowski" target="_blank" rel="noopener">linkedin.com/in/caleb-pucylowski</a>
+          <a href="https://github.com/CalebPuc" target="_blank" rel="noopener">github.com/CalebPuc</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">&copy; 2026 Caleb Pucylowski</div></footer>
+
+<script>
+(function () {
+  // Respect reduced-motion: don't autoplay the robot clip; give the viewer controls instead.
+  if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelectorAll('video[autoplay]').forEach(function (v) { v.removeAttribute('autoplay'); v.pause(); v.controls = true; });
+  }
+})();
+</script>
+<script>
+(function () {
+  // Copy email
+  var btn = document.getElementById('copy-email'), status = document.getElementById('copy-status'), code = document.getElementById('email');
+  btn.addEventListener('click', function () {
+    var text = code.textContent;
+    function selectIt() { var r = document.createRange(); r.selectNodeContents(code); var s = getSelection(); s.removeAllRanges(); s.addRange(r); status.textContent = 'Selected. Press Ctrl+C or Cmd+C to copy.'; }
+    try {
+      navigator.clipboard.writeText(text).then(function () { status.textContent = 'Copied'; }, selectIt);
+    } catch (e) { selectIt(); }
+  });
+
+  // "Highway in the Sky": a perspective tunnel of guidance boxes along a gently curving flight path.
+  var canvas = document.getElementById('hits'), ctx = canvas.getContext('2d');
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var W = 0, H = 0, dpr = 1, t = 0;
+  function css(name) { return getComputedStyle(document.documentElement).getPropertyValue(name).trim(); }
+  function size() {
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    W = canvas.clientWidth; H = canvas.clientHeight;
+    canvas.width = Math.round(W * dpr); canvas.height = Math.round(H * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  function path(z, phase) { // lateral/vertical offset of the flight path at depth z
+    return { x: Math.sin(z * 0.11 + phase) * 2.2, y: Math.cos(z * 0.07 + phase * 0.8) * 0.9 - 0.4 };
+  }
+  function draw() {
+    var accent = css('--deck-accent') || '#ff4fb8', line = css('--deck-line') || '#23344a';
+    ctx.clearRect(0, 0, W, H);
+    var wide = W > 760;
+    var cx = W * (wide ? 0.74 : 0.78), cy = H * (wide ? 0.5 : 0.82), f = Math.min(W, H) * (wide ? 1.0 : 0.55);
+    // horizon line
+    ctx.strokeStyle = line; ctx.lineWidth = 1; ctx.globalAlpha = 0.9;
+    ctx.beginPath(); ctx.moveTo(0, cy + 18); ctx.lineTo(W, cy + 18); ctx.stroke();
+    var spacing = 4, n = 16, offset = (t * 0.035) % spacing;
+    var pts = [];
+    for (var i = n; i >= 1; i--) {
+      var z = i * spacing - offset;
+      if (z < 7) continue;                       // keep the nearest boxes from filling the screen
+      var p = path(z + t * 0.035, 0);
+      var s = f / z, bw = 2.6 * s, bh = 1.7 * s;
+      var x = cx + p.x * s, y = cy + p.y * s;
+      pts.push([x, y]);
+      var a = Math.max(0, Math.min(1, 1.15 - z / (n * spacing))) * Math.min(1, (z - 7) / 6);
+      ctx.globalAlpha = a * (wide ? 0.85 : 0.5);
+      ctx.strokeStyle = accent; ctx.lineWidth = Math.max(1, s * 0.02);
+      ctx.strokeRect(x - bw / 2, y - bh / 2, bw, bh);
+    }
+    // centre path line through the boxes
+    ctx.globalAlpha = wide ? 0.35 : 0.2; ctx.strokeStyle = accent; ctx.lineWidth = 1;
+    ctx.beginPath(); pts.forEach(function (q, k) { k ? ctx.lineTo(q[0], q[1]) : ctx.moveTo(q[0], q[1]); }); ctx.stroke();
+    // left-side fade so the text stays readable
+    var deck = css('--deck') || '#0e1a28';
+    if (wide) {
+      var g = ctx.createLinearGradient(0, 0, W * 0.62, 0);
+      g.addColorStop(0, deck); g.addColorStop(0.55, deck); g.addColorStop(1, 'rgba(0,0,0,0)');
+      ctx.globalAlpha = 0.92; ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+    }
+    ctx.globalAlpha = 1;
+  }
+  function loop() { t += 1; draw(); if (!reduce && !document.hidden) requestAnimationFrame(loop); }
+  size(); draw();
+  window.addEventListener('resize', function () { size(); draw(); });
+  document.addEventListener('visibilitychange', function () { if (!document.hidden && !reduce) requestAnimationFrame(loop); });
+  if (!reduce) requestAnimationFrame(loop);
+})();
+</script>
+
+</body>
+</html>
