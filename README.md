@@ -7,7 +7,7 @@ I'm Caleb Pucylowski, a Duke University student double majoring in Electrical & 
 ## What's on the site
 
 - **Experience:** NASA Langley (a C++/OpenSceneGraph "Highway in the Sky" flight-guidance display), Amazon (a real-time escalation service for an AI shopping assistant on AWS), and quantum computing research
-- **Projects:** a Java multiplayer game engine with 226 unit tests, a ROS 2 patrol robot built on a Kinova arm, a Unity dungeon crawler, operating-system and 16-bit CPU projects, an Arduino design-challenge robot, and a silicon wafer etch with LabVIEW lab automation
+- **Projects:** a Java multiplayer game engine with 237 automated tests, a ROS 2 patrol robot built on a Kinova arm, a Unity dungeon crawler, operating-system and 16-bit CPU projects, an Arduino design-challenge robot, and a silicon wafer etch with LabVIEW lab automation
 - **Skills, honors, and a short bio**
 - **Resume:** a downloadable PDF
 
